@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "751725210234",
+    "project_id": "cs440flutter",
+    "storage_bucket": "cs440flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751725210234:android:3d7477e121bae2c66c29c3",
+        "android_client_info": {
+          "package_name": "com.example.booska"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751725210234-tjhibvsehcpet2lopvbobbqskdlmcaa9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr-kPEB2vg-MGeopjbPsGd01-BoUcGTqk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751725210234-tjhibvsehcpet2lopvbobbqskdlmcaa9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

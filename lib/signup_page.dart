@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 import 'home_page.dart';
 
@@ -18,6 +20,7 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController idController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  final database = FirebaseDatabase.instance.ref();
 
   @override
   Widget build(BuildContext context) {
@@ -113,10 +116,19 @@ class _SignupPageState extends State<SignupPage> {
                   child: ElevatedButton(
                     child: const Text('Sign Up'),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
-                      print(firstnameController.text);
-                      print(lastnameController.text);
+                      FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                              email: emailController.text,
+                              password: passwordController.text)
+                          .then((value) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomePage()));
+                      });
+                      // implement on error
+                      // pass much be 6 in length
+                      //
                     },
                   )),
             ],

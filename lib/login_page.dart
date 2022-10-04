@@ -1,4 +1,5 @@
 import 'package:booska/signup_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'User Name/email',
                 ),
               ),
             ),
@@ -74,12 +75,15 @@ class _LoginPageState extends State<LoginPage> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () {
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage())
-                    );
-                    print(nameController.text);
-                    print(passwordController.text);
+                    FirebaseAuth.instance.signInWithEmailAndPassword(
+                        email: nameController.text,
+                        password: passwordController.text).then((value) {
+                          Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => HomePage()));
+                        });
+
+                    
+                
                   },
                 )),
             Row(
@@ -91,10 +95,8 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignupPage())
-                    );
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignupPage()));
                   },
                 )
               ],

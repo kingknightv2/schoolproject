@@ -1,3 +1,4 @@
+import 'package:booska/databaseInfo/database.dart';
 import 'package:booska/signup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -16,6 +17,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  Database b = new Database();
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +83,8 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(context,
                             MaterialPageRoute(builder: (context) => HomePage()));
                         });
+                    // get the data based on email
+                    b.getDatalist(nameController.text.trim());
 
                     
                 

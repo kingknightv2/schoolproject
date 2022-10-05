@@ -1,9 +1,11 @@
+import 'package:booska/databaseInfo/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_database/firebase_database.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'home_page.dart';
 
 class SignupPage extends StatefulWidget {
@@ -20,7 +22,20 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController idController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  final database = FirebaseDatabase.instance.ref();
+  
+  Database data = new Database();
+
+  // Future addData(String name, String last, String phone, String email, String id, String pass) async {
+  //   Map<String,String> datastore = {
+  //     'First name' : name,
+  //     'Last name' : last,
+  //     'phone Number' : phone,
+  //     'Email': email,
+  //     'Id': id,
+  //     'Password': pass
+  //   };
+  //   await FirebaseFirestore.instance.collection('users').add(datastore);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -108,31 +123,36 @@ class _SignupPageState extends State<SignupPage> {
                     border: OutlineInputBorder(),
                     labelText: 'password',
                   ),
-                ),
+                ),  
               ),
               Container(
                   height: 50,
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: ElevatedButton(
                     child: const Text('Sign Up'),
-                    onPressed: () {
-                      FirebaseAuth.instance
+                    onPressed: () async {
+                      await FirebaseAuth.instance
                           .createUserWithEmailAndPassword(
-                              email: emailController.text,
-                              password: passwordController.text)
-                          .then((value) {
+                              email: emailController.text.trim(),
+                              password: passwordController.text.trim());
+                      
+                      data.addData(firstnameController.text.trim(), 
+                      lastnameController.text.trim(),
+                      phoneController.text.trim(), 
+                      emailController.text.trim(), 
+                      idController.text.trim(),
+                      passwordController.text.trim()).then((value) {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => HomePage()));
                       });
-                      // implement on error
-                      // pass much be 6 in length
-                      //
                     },
                   )),
             ],
           )),
     );
-  }
-}
+  } // end of widget
+
+} // end of class
+ 

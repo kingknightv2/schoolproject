@@ -58,11 +58,37 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
 
+  
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - assets/images/abs/abs_exericse2.jpg
+    - assets/images/abs/plank_abs.png
+    - assets/images/back/back_exercises.gif
+    - assets/images/back/pull_up_back.jpg
+    - assets/images/back/super_man_back.jpg
+    - assets/images/biceps/Bicep-Curl_Exercise.jpg
+    - assets/images/biceps/bicep_curl.gif
+    - assets/images/biceps/biceps_2.gif
+    - assets/images/chest/lateral_raise.png
+    - assets/images/chest/chest-incline-dumbbellpress.jpg
+    - assets/images/chest/upper_chest.gif
+    - assets/images/glutes/cable_kickback.jpg
+    - assets/images/glutes/glutes.jpg
+    - assets/images/glutes/hip-thrust-weighted.gif
+    - assets/images/legs/goblet_squat.jpg
+    - assets/images/legs/legs_gif.gif
+    - assets/images/legs/legs_step.jpg
+    - assets/images/shoulder/6-Dumbbell-Lateral-Raise.jpg
+    - assets/images/shoulder/Shoulde.jpg
+    - assets/images/shoulder/shoulder-press-seated-shoulder-press.gif
+    - assets/images/triceps/How-to-do-a-Tricep-Extension.jpg
+    - assets/images/triceps/overhead-tricep-extension.gif
+    - assets/images/triceps/tricep-rope-pulldown.gif
+    - assets/images/homepageGym.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

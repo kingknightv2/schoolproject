@@ -1,12 +1,7 @@
 import 'package:booska/home_page.dart';
 import 'package:flutter/material.dart';
 
-// void main() {
-//   runApp(const MaterialApp(
-//     title: 'Types of Exercises',
-//     home: FirstRoute(),
-//   ));
-// }
+
   class FirstRoute extends StatelessWidget{
     const FirstRoute({super.key});
     @override
@@ -231,17 +226,17 @@ class Biceps_Exercises extends StatelessWidget{
         child: Column(
           children: <Widget>[
             Image.asset('assets/images/biceps/biceps_2.gif',
-              height: 300,
+              height: 220,
               scale: 2.5,
 // color: Color.fromARGB(255, 15, 147, 59),
             ), //Image.asset
             Image.asset('assets/images/biceps/bicep_curl.gif',
-              height: 300,
+              height: 220,
               scale: 2.5,
             ),
-            Image.asset('assets/images/Bicep-Curl_Exercise.jpg',
-              height: 300,
-              width: 300,
+            Image.asset('assets/images/biceps/Bicep-Curl_Exercise.jpg',
+              height: 200,
+              width: 200,
             )
           ],
         ),
@@ -409,3 +404,6 @@ class Tricep_Exercises extends StatelessWidget{
     );
   }
 }
+
+
+

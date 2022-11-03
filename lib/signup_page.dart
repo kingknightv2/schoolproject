@@ -25,17 +25,6 @@ class _SignupPageState extends State<SignupPage> {
   
   Database data = new Database();
 
-  // Future addData(String name, String last, String phone, String email, String id, String pass) async {
-  //   Map<String,String> datastore = {
-  //     'First name' : name,
-  //     'Last name' : last,
-  //     'phone Number' : phone,
-  //     'Email': email,
-  //     'Id': id,
-  //     'Password': pass
-  //   };
-  //   await FirebaseFirestore.instance.collection('users').add(datastore);
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -145,7 +134,7 @@ class _SignupPageState extends State<SignupPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomePage()));
+                                builder: (context) => HomePage(val : emailController.text.trim())));
                       });
                     },
                   )),

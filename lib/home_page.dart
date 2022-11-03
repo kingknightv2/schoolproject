@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:booska/chat_page.dart';
 import 'package:booska/databaseInfo/database.dart';
 import 'package:booska/example_buttons.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,15 +11,19 @@ import 'databaseInfo/database.dart';
 import 'example_buttons.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  
+  final val;
+  const HomePage({super.key, this.val});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState(val);
 }
 
 class _HomePageState extends State<HomePage> {
   Database t = new Database();
-  int _count = 0;
+  String val;
+  _HomePageState(this.val);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,9 @@ class _HomePageState extends State<HomePage> {
           centerTitle: true,
           actions: [
             IconButton(onPressed: () {
-             // chat 
+                Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ChatBox(Useremail : val)));
             }, icon: const Icon(
               Icons.message
             ))
@@ -65,16 +72,16 @@ class _HomePageState extends State<HomePage> {
                   margin: EdgeInsets.all(20),
                   child: TextButton(
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                         
+                      },  
                       icon: Icon(Icons.camera_alt),
                     ),
                     onPressed: () {
-                     // in progrss
+                     // do not use 
                     },
                   ),
                 ),
-               
-
           ]))
           
           

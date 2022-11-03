@@ -17,7 +17,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  Database b = new Database();
 
   @override
   Widget build(BuildContext context) {
@@ -81,13 +80,11 @@ class _LoginPageState extends State<LoginPage> {
                         email: nameController.text,
                         password: passwordController.text).then((value) {
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HomePage()));
+                            MaterialPageRoute(builder: (context) => HomePage(val : nameController.text.trim())));
                         });
                     // get the data based on email
-                    b.getDatalist(nameController.text.trim());
+                    //b.getDatalist(nameController.text.trim());
 
-                    
-                
                   },
                 )),
             Row(

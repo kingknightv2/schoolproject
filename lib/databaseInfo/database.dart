@@ -1,13 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class Database {
-
+  final time = DateTime.now();
   // add the data
 
   Future addData(String name, String last, String phone, String email, String id, String pass) async {
@@ -20,6 +15,19 @@ class Database {
       'Password': pass
     };
     await FirebaseFirestore.instance.collection('users').doc(email).set(datastore);
+  }
+
+  Future addMessage(String message, String email) async{
+    
+    await FirebaseFirestore.instance.collection('Messeges').doc().set( {
+      'Messeage': message,
+      'email': email
+    });
+  }
+
+  Stream<QuerySnapshot> returnedMessages() {
+    Stream<QuerySnapshot> message = FirebaseFirestore.instance.collection('Messeges').snapshots();
+    return message;
   }
 
   // get the data

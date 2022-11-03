@@ -9,6 +9,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'databaseInfo/database.dart';
 import 'example_buttons.dart';
+import 'camera_page.dart';
+
 
 class HomePage extends StatefulWidget {
   
@@ -35,6 +37,7 @@ class _HomePageState extends State<HomePage> {
           centerTitle: true,
           actions: [
             IconButton(onPressed: () {
+                t.DeleteMessages();
                 Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => ChatBox(Useremail : val)));
@@ -73,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                   child: TextButton(
                     child: IconButton(
                       onPressed: () {
-                         
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => CameraPage()));
                       },  
                       icon: Icon(Icons.camera_alt),
                     ),

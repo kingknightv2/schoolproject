@@ -25,6 +25,15 @@ class Database {
     });
   }
 
+  Future DeleteMessages() async {
+    var messages = FirebaseFirestore.instance.collection('Messeges');
+    var snapshots = await messages.get();
+    for (var doc in snapshots.docs) {
+      
+      await doc.reference.delete();
+    }
+  }
+
   Stream<QuerySnapshot> returnedMessages() {
     Stream<QuerySnapshot> message = FirebaseFirestore.instance.collection('Messeges').snapshots();
     return message;
@@ -38,5 +47,7 @@ class Database {
         print(data);
       });
   }
+
+  
 
 }

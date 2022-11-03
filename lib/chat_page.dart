@@ -23,6 +23,7 @@ class _ChatBoxState extends State<ChatBox> {
   _ChatBoxState(this.Useremail);
 
 
+
   @override
   Widget build(BuildContext context) {
 
@@ -33,31 +34,24 @@ class _ChatBoxState extends State<ChatBox> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            
-            child: MessagesOutput(email : Useremail),
+            child: SingleChildScrollView(child:MessagesOutput(email : Useremail),reverse: true,physics: ScrollPhysics(),)
+             
           ),
           
           Row(children: [
             Expanded(child: Container(child: TextField(
               controller: messageController,
+              
               decoration: InputDecoration(
                 filled: true,
-                hintText: "Enter Text"
               ),
             ),) ),
             IconButton(
               onPressed: () {
-
-                
                 if(messageController.text.trim() != "") {
                   b.addMessage(messageController.text.trim(), Useremail);
                   messageController.clear();
                 }
-                
-
-                // b.getDatalist(Useremail);
-                // print(Useremail);
-                // print(messageController.text.trim());
             }, icon: Icon(Icons.send))
           ],),
          
